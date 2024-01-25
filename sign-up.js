@@ -56,7 +56,11 @@ $(document).ready(function() {
     checkNextButton();
   });
 	
-  $('#performer-main-role, #performer-top-skills').on('change', function (e) {
+  $('#performer-main-role').parent().find(".selected-item").on('change', function (e) {
+	  console.log("change");
+    checkPerformerSubmitButton();
+  });
+  $('#performer-top-skills').parent().find(".ms-options-wrap button").on('change', function (e) {
 	  console.log("change");
     checkPerformerSubmitButton();
   });
