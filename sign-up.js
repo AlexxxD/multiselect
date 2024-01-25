@@ -181,7 +181,6 @@ $(document).ready(function() {
   });
 
   $(document).on("click", function() {
-  	console.log('doc click')
   	var opened = $(".all-items:not(.all-items-hide)"),
         index = opened.parent().index();
 
