@@ -51,9 +51,15 @@ $(document).ready(function() {
     checkCustomerSubmitButton();
     checkPerformerSubmitButton();
   });
-  $('input[type=checkbox]').on('change', function (e) {
+
+  $('#sign-up-conditions').on('change', function (e) {
     checkNextButton();
-  }); 
+  });
+	
+  $('#performer-main-role, #performer-top-skills').on('change', function (e) {
+	  console.log("change");
+    checkPerformerSubmitButton();
+  });
 
   $('.select-button').on('click', function (e) {
     e.preventDefault();
