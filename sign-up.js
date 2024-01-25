@@ -188,8 +188,8 @@ $(document).ready(function() {
       	customSelect.eq(index).find(".selected-item").removeClass("arrowanim");
   });
   
-  $('#top-skills').multiselect();
-  $("#top-skills").multiselect('loadOptions', [
+  $('#performer-top-skills').multiselect();
+  $("#performer-top-skills").multiselect('loadOptions', [
   	{ name: '3D Engineering', value: '3D Engineering'},
     { name: '3D Modeling', value: '3D Modeling'},
     { name: 'Affiliate Marketing', value: 'Affiliate Marketing'},
@@ -495,6 +495,6 @@ $(document).ready(function() {
     { name: 'ZeroMQ', value: 'ZeroMQ'},
     { name: 'Zod', value: 'Zod'}
   ]);
-  $('#top-skills').multiselect('reload');
+  $('#performer-top-skills').multiselect('reload');
   
 });
