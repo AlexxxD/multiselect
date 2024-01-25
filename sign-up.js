@@ -1,5 +1,4 @@
 function checkNextButton() {
-
   var name = $("#sign-up-name").val();
   var email = $("#sign-up-email").val();
   var conditionsChecked = $("#sign-up-conditions:checked").length;
@@ -7,7 +6,7 @@ function checkNextButton() {
   const regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   
   if(name.length > 1 && regex.test(email) && userType && conditionsChecked) {
-  	$("#sign-up-button-next").removeClass("inactive");
+    $("#sign-up-button-next").removeClass("inactive");
     return false;
   }
   
@@ -21,25 +20,43 @@ function checkCustomerSubmitButton() {
   var requestType = $("#customer-augment").hasClass("selected") || $("#customer-end-to-end").hasClass("selected");
 
   if(company.length > 2 && goals.length > 10 && requestType) {
-  	$("#sign-up-customer-submit").removeClass("inactive");
+    $("#sign-up-customer-submit").removeClass("inactive");
     return false;
   }
   
   $("#sign-up-customer-submit").addClass("inactive");
 }
 
+function checkPerformerSubmitButton() {
+	
+  var location = $("#performer-location").val();
+  var rate = $("#performer-rate").val();
+  var mainRole = $("#performer-main-role").parent().find('.selected-item').text() != "Select one";
+  var topSkills = $("#performer-top-skills option:selected").length;
+
+  console.log(location + " == " + rate + " == " + mainRole + " == " + topSkills);
+
+  if(location.length > 5 && rate.length > 2 && mainRole && topSkills) {
+    $("#sign-up-performer-submit").removeClass("inactive");
+    return false;
+  }
+  
+  $("#sign-up-performer-submit").addClass("inactive");
+}
+
 $(document).ready(function() {
 
-	$('input[type=text], input[type=email], textarea').on('keyup', function (e) {
-  	checkNextButton();
+  $('input[type=text], input[type=email], textarea').on('keyup', function (e) {
+    checkNextButton();
     checkCustomerSubmitButton();
+    checkPerformerSubmitButton();
   });
-	$('input[type=checkbox]').on('change', function (e) {
-  	checkNextButton();
+  $('input[type=checkbox]').on('change', function (e) {
+    checkNextButton();
   }); 
 
   $('.select-button').on('click', function (e) {
-  	e.preventDefault();
+    e.preventDefault();
     $(this).parent().find('.select-button').removeClass("selected");
     $(this).parent().find('.select-button input[type=checkbox]').removeAttr('checked');
     
@@ -48,6 +65,7 @@ $(document).ready(function() {
     
     checkNextButton();
     checkCustomerSubmitButton();
+    checkPerformerSubmitButton();
   });
   
   $('#sign-up-button-next').on('click', function (e) {
@@ -64,9 +82,9 @@ $(document).ready(function() {
   });
   
   var customSelect = $(".custom-select");
-
+	
   customSelect.each(function() {
-		var thisCustomSelect = $(this),
+	var thisCustomSelect = $(this),
         options = thisCustomSelect.find("option"),
         firstOptionText = options.first().text();
         
@@ -87,7 +105,7 @@ $(document).ready(function() {
       "Data Engineer",
       "Data Scientist",
       "Deep Learning Engineer",
-      "Devops Engineer",
+      "DevOps Engineer",
       "Embedded Engineer",
       "Engineering Manager",
       "Front-End Developer",
@@ -118,7 +136,7 @@ $(document).ready(function() {
       "Systems Test Engineer",
       "UX Expert",
       "User Acquisition Manager",
-      "Wordpress Developer",
+      "WordPress Developer",
       "iOS Developer"
     ];
 
