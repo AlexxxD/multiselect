@@ -32,7 +32,7 @@ function checkPerformerSubmitButton() {
   var location = $("#performer-location").val();
   var rate = $("#performer-rate").val();
   var mainRole = $("#performer-main-role").parent().find('.selected-item').text() != "Select one";
-  var topSkills = $("#performer-top-skills option:selected").length;
+  var topSkills = $("#performer-top-skills").parent().find('.ms-options input[type=checkbox]:checked').length;
 
   console.log(location + " == " + rate + " == " + mainRole + " == " + topSkills);
 
@@ -56,12 +56,7 @@ $(document).ready(function() {
     checkNextButton();
   });
 	
-  $('#performer-main-role').parent().find(".selected-item").on('change', function (e) {
-	  console.log("change");
-    checkPerformerSubmitButton();
-  });
-  $('#performer-top-skills').parent().find(".ms-options-wrap button").on('change', function (e) {
-	  console.log("change");
+  $('.all-items .item, .ms-options li').on('click', function() {
     checkPerformerSubmitButton();
   });
 
@@ -166,7 +161,7 @@ $(document).ready(function() {
           on: {
             click: function() {
               var selectedOptionText = elem;
-              selectedItem.text(selectedOptionText).removeClass("arrowanim");
+              selectedItem.text(selectedOptionText).val(selectedOptionText).removeClass("arrowanim");
               allItems.addClass("all-items-hide");
             }
           }
