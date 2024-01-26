@@ -72,11 +72,14 @@ $(document).ready(function() {
   });
   
   $('#sign-up-button-next').on('click', function (e) {
-  	e.preventDefault();
-  	if($(this).hasClass('inactive')) return false;
+    e.preventDefault();
+    if($(this).hasClass('inactive')) return false;
     
     if($("#sign-up-customer").hasClass("selected")) {
     	$("#sign-up-customer-form").removeClass("hidden");
+    }
+    if($("#sign-up-performer").hasClass("selected")) {
+    	$("#sign-up-performer-form").removeClass("hidden");
     }
     
     $("#sign-up-main-form").addClass("hidden");
