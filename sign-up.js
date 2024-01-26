@@ -56,12 +56,6 @@ $(document).ready(function() {
     checkNextButton();
   });
 	
-  $('.all-items .item').on('click', function() {
-    checkPerformerSubmitButton();
-    var optionValue = $("#performer-main-role").parent().find('.selected-item').text();
-    $('#performer-main-role').html(new Option(optionValue, optionValue, false, true));
-  });
-	
   $('.ms-options li').on('click', function() {
     checkPerformerSubmitButton();
   });
@@ -507,5 +501,11 @@ $(document).ready(function() {
     { name: 'Zod', value: 'Zod'}
   ]);
   $('#performer-top-skills').multiselect('reload');
+
+  $('.all-items .item').on('click', function() {
+    checkPerformerSubmitButton();
+    var optionValue = $("#performer-main-role").parent().find('.selected-item').text();
+    $('#performer-main-role').html(new Option(optionValue, optionValue, false, true));
+  });
   
 });
