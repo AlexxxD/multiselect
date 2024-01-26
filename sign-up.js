@@ -56,7 +56,13 @@ $(document).ready(function() {
     checkNextButton();
   });
 	
-  $('.all-items .item, .ms-options li').on('click', function() {
+  $('.all-items .item').on('click', function() {
+    checkPerformerSubmitButton();
+    var optionValue = $("#performer-main-role").parent().find('.selected-item').text();
+    $('#performer-main-role').html(new Option(optionValue, optionValue, false, true));
+  });
+	
+  $('.ms-options li').on('click', function() {
     checkPerformerSubmitButton();
   });
 
@@ -161,7 +167,7 @@ $(document).ready(function() {
           on: {
             click: function() {
               var selectedOptionText = elem;
-              selectedItem.text(selectedOptionText).val(selectedOptionText).removeClass("arrowanim");
+              selectedItem.text(selectedOptionText).removeClass("arrowanim");
               allItems.addClass("all-items-hide");
             }
           }
