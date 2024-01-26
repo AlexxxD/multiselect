@@ -34,8 +34,6 @@ function checkPerformerSubmitButton() {
   var mainRole = $("#performer-main-role").parent().find('.selected-item').text() != "Select one";
   var topSkills = $("#performer-top-skills").parent().find('.ms-options input[type=checkbox]:checked').length;
 
-  console.log(location + " == " + rate + " == " + mainRole + " == " + topSkills);
-
   if(location.length > 5 && rate.length > 2 && mainRole && topSkills) {
     $("#sign-up-performer-submit").removeClass("inactive");
     return false;
@@ -506,6 +504,12 @@ $(document).ready(function() {
     checkPerformerSubmitButton();
     var optionValue = $("#performer-main-role").parent().find('.selected-item').text();
     $('#performer-main-role').html(new Option(optionValue, optionValue, false, true));
+  });
+
+  $('#sign-up-performer-submit').on('click', function(e) {
+    e.preventDefault();
+    $("#performer-top-skills").parent().find('.ms-options input[type=checkbox]').remove();
+    $('#wf-form-Sign-Up-Performer-Form').submit();
   });
   
 });
