@@ -54,7 +54,11 @@ $(document).ready(function() {
     checkNextButton();
   });
 	
-  $('.ms-options li').on('click', function() {
+  //$('.ms-options li').on('click', function() {
+  //  checkPerformerSubmitButton();
+  //});
+
+  $('.ms-options li input[type=checkbox]').on('change', function() {
     checkPerformerSubmitButton();
   });
 
@@ -74,6 +78,8 @@ $(document).ready(function() {
   $('#sign-up-button-next').on('click', function (e) {
     e.preventDefault();
     if($(this).hasClass('inactive')) return false;
+
+    console.log($("#sign-up-performer").hasClass("selected"));
     
     if($("#sign-up-customer").hasClass("selected")) {
     	$("#sign-up-customer-form").removeClass("hidden");
