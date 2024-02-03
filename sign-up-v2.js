@@ -66,7 +66,6 @@ var skills = {
 };
 
 
-
 function generateString(length) {
     let result = ' ';
     const charactersLength = characters.length;
@@ -112,6 +111,9 @@ function checkPerformerSubmitButton() {
   var rate = $("#performer-rate").val();
   var mainRole = $("#performer-main-role").parent().find('.selected-item').text() != "Select one";
   var topSkills = $("#performer-top-skills").parent().find('.ms-options input[type=checkbox]:checked').length;
+
+  console.log(location + " == " + rate + " == " + mainRole + " == " + topSkills);
+  console.log( $('#sign-up-user').val() );
 
   if(location.length > 5 && rate.length > 1 && mainRole && topSkills) {
     $("#sign-up-performer-submit").removeClass("inactive");
@@ -265,7 +267,7 @@ $(document).ready(function() {
 
     $("#performer-top-skills").multiselect('loadOptions', options);
     $('#performer-top-skills').multiselect('reload');
-    
+
     checkPerformerSubmitButton();
 
   });
