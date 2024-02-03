@@ -195,30 +195,29 @@ $(document).ready(function() {
       class: "all-items all-items-hide"
     }).appendTo(thisCustomSelect);
 
-    options.forEach((category) => {
+    for (var category in options) {
 
       var itemList = $("<div></div>", {
           class: "item-group"
       }).appendTo(allItems).text(category);
 
-      Object.keys(options[category]).forEach(function(elem) {
+      for (var index in options[category]) {
 
-        var optionText = elem;
+        var optionText = options[category][index];
 
         var item = $("<div></div>", {
             class: "item",
             on: {
               click: function() {
-                var selectedOptionText = elem;
-                selectedItem.text(selectedOptionText).removeClass("arrowanim");
+                selectedItem.text(optionText).removeClass("arrowanim");
                 allItems.addClass("all-items-hide");
               }
             }
         }).appendTo(allItems).text(optionText);
 
-      });
+      };
 
-    });
+    };
   });
 
   var selectedItem = $(".selected-item"),
