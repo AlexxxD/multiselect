@@ -185,8 +185,6 @@ $(document).ready(function() {
     options[category] = Object.keys(skills[category]);
   }
 
-  console.log(options);
-
     var selectedItem = $("<div></div>", {
       class: "selected-item"
     }).appendTo(thisCustomSelect).text(firstOptionText);
@@ -209,7 +207,8 @@ $(document).ready(function() {
             class: "item",
             on: {
               click: function() {
-                selectedItem.text(optionText).removeClass("arrowanim");
+                var selectedOptionText = $(this).text();
+                selectedItem.text(selectedOptionText).removeClass("arrowanim");
                 allItems.addClass("all-items-hide");
               }
             }
@@ -247,16 +246,18 @@ $(document).ready(function() {
   $('#performer-top-skills').multiselect();
 
   $('.all-items .item').on('click', function() {
-    checkPerformerSubmitButton();
     var optionValue = $("#performer-main-role").parent().find('.selected-item').text();
     $('#performer-main-role').html(new Option(optionValue, optionValue, false, true));
 
     var category = $(this).prevAll(".item-group").eq(0).text();
 
+    console.log(category);
+
     var options = [];
     if(skills[category] && skills[category][optionValue]) {
-      for (var skill in skills[category][optionValue]) {
-        options = [options, {name: skill, value: skill}];
+      for (var index in skills[category][optionValue]) {
+        var skill = skills[category][optionValue][index];
+        options.push({name: skill, value: skill});
       }
     }
 
@@ -264,6 +265,8 @@ $(document).ready(function() {
 
     $("#performer-top-skills").multiselect('loadOptions', options);
     $('#performer-top-skills').multiselect('reload');
+    
+    checkPerformerSubmitButton();
 
   });
 
