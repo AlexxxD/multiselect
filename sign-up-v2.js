@@ -108,14 +108,14 @@ function checkCustomerSubmitButton() {
 function checkPerformerSubmitButton() {
   
   var location = $("#performer-location").val();
-  var rate = $("#performer-rate").val();
+  var rateMin = $("#performer-rate-min").val();
+  var rateMax = $("#performer-rate-max").val();
   var mainRole = $("#performer-main-role").parent().find('.selected-item').text() != "Select one";
   var topSkills = $("#performer-top-skills").parent().find('.ms-options input[type=checkbox]:checked').length;
 
-  console.log(location + " == " + rate + " == " + mainRole + " == " + topSkills);
-  console.log( $('#sign-up-user').val() );
+  //console.log(location + " == " + rate + " == " + mainRole + " == " + topSkills);
 
-  if(location.length > 5 && rate.length > 1 && mainRole && topSkills) {
+  if(location.length > 5 && ((rateMin.length > 1 && rateMin > 0) || (rateMax.length > 1 && rateMax > 0)) && mainRole && topSkills) {
     $("#sign-up-performer-submit").removeClass("inactive");
     return false;
   }
@@ -138,7 +138,6 @@ $(document).ready(function() {
   });
 
   $('.custom-multi-select').on('change', 'input[type=checkbox]', function() {
-    console.log("ms-options change");
     checkPerformerSubmitButton();
   });
 
@@ -158,8 +157,6 @@ $(document).ready(function() {
   $('#sign-up-button-next').on('click', function (e) {
     e.preventDefault();
     if($(this).hasClass('inactive')) return false;
-
-    console.log($("#sign-up-performer").hasClass("selected"));
     
     if($("#sign-up-customer").hasClass("selected")) {
       $("#sign-up-customer-form").removeClass("hidden");
@@ -254,8 +251,6 @@ $(document).ready(function() {
 
     var category = $(this).prevAll(".item-group").eq(0).text();
 
-    console.log(category);
-
     var options = [];
     if(skills[category] && skills[category][optionValue]) {
       for (var index in skills[category][optionValue]) {
@@ -263,8 +258,6 @@ $(document).ready(function() {
         options.push({name: skill, value: skill});
       }
     }
-
-    console.log(options);
 
     $("#performer-top-skills").multiselect('loadOptions', options);
     $('#performer-top-skills').multiselect('reload');
