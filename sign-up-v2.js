@@ -137,7 +137,7 @@ $(document).ready(function() {
     checkNextButton();
   });
 
-  $('.ms-options input[type=checkbox]').on('change', function() {
+  $('.custom-multi-select').on('change', 'input[type=checkbox]', function() {
     console.log("ms-options change");
     checkPerformerSubmitButton();
   });
