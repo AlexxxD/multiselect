@@ -129,8 +129,8 @@ $(document).ready(function() {
 
   $('input[type=text], input[type=email], textarea').on('keyup', function (e) {
     checkNextButton();
-    checkCustomerSubmitButton();
-    checkPerformerSubmitButton();
+    if($(this).parents('#sign-up-customer-form').length) checkCustomerSubmitButton();
+    if($(this).parents('#sign-up-performer-form').length) checkPerformerSubmitButton();
   });
 
   $('#sign-up-conditions').on('change', function (e) {
@@ -138,6 +138,7 @@ $(document).ready(function() {
   });
 
   $('.ms-options input[type=checkbox]').on('change', function() {
+    console.log("ms-options change");
     checkPerformerSubmitButton();
   });
 
