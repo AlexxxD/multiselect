@@ -1,7 +1,6 @@
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
 var skills = {
-
       "Tech": {
             "Android Developer": ["Agile", "Algorithm Design", "Automated Testing", "Dagger 2", "Firebase services", "Java", "Jetpack Components", "Kotlin", "MVVM", "OkHttp", "Retrofit", "SQLite", "UI testing (Espresso)", "Unit testing (JUnit)"],
             "Automation Developer": [".NET", "Agile", "Algorithm Design", "Amazon Athena", "Amazon Redshift", "Ansible", "ArangoDB", "Artifactory", "Async.io", "Aurelia", "Automated Testing", "Boto3", "CI/CD", "CircleCI", "Cryptography", "Cypress", "DataDog", "DynamoDB", "Erlang", "Ethers.js", "Express.js", "F#", "Firebase", "Flink", "Go", "GoCD", "Google Cloud / GCP", "Grafana", "GraphQL", "Groovy", "Hadoop", "Hasura", "Heroku", "HiveQL", "Jenkins", "JEST", "Keras", "Kinesis", "LangChain", "Laravel", "LaunchDarkly", "Llama / Llama 2", "Mediasoup", "Meteor.js", "Microservices", "MongoDB", "Multi-Threading", "MySQL", "Nest.js", "Next.js", "Numpy", "Pandas", "Passport.js", "Perl", "PHP", "Playwright", "PySQL", "PyTorch", "Rollbar", "Rust", "RxJava", "Sails.js", "Scikit-learn", "Selenium", "Sentry", "ServiceNow", "Shopify", "Sockets", "Solidity", "Sound Processing", "Spark", "Speech Recognition", "Strapi", "Tensorflow", "Text-to-Speech", "Tornado", "WebRTC", "WordPress", "ZeroMQ"],
